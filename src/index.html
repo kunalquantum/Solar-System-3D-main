@@ -6,6 +6,28 @@
 
     <!-- TITLE OF OUR BROWSER'S TAB -->
     <title>Saggitarius</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const titleText = "Saggitarius";
+            let index = 0;
+            const speed = 200; // Speed of typing in milliseconds
+
+            function typeWriter() {
+                if (index < titleText.length) {
+                    document.title = titleText.substring(0, index + 1);
+                    index++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    setTimeout(() => {
+                        index = 0;
+                        typeWriter();
+                    }, 2000); // Pause before restarting
+                }
+            }
+
+            typeWriter();
+        });
+    </script>
 
     <!-- GOOGLE FONT IMPORTS - HEADING -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,11 +60,120 @@
     <link rel="icon" type="image/x-icon" href="./public/assets/galaxy.ico" />
   </head>
   <body>
+    <style>
+      nav {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .navigation-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navigation-list li {
+        margin: 0 1rem;
+      }
+
+      .navigation-list li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .navigation-list li a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.5s;
+      }
+
+      .navigation-list li a:hover:before {
+        left: 100%;
+      }
+
+      .navigation-list li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      /* Black and white animated hover effect */
+      .navigation-list li a {
+        background: linear-gradient(to right, #fff 50%, #000 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.5s ease;
+      }
+
+      .navigation-list li a:hover {
+        background-position: left bottom;
+        color: #000;
+      }
+
+      @keyframes twinkle {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
+      }
+
+      .star {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: twinkle 2s infinite;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const nav = document.querySelector('nav');
+        
+        // Add stars to the navigation
+        for (let i = 0; i < 20; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+          star.style.width = `${Math.random() * 2 + 1}px`;
+          star.style.height = star.style.width;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.animationDelay = `${Math.random() * 2}s`;
+          nav.appendChild(star);
+        }
+
+        // Navbar animation on scroll
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 100) {
+            nav.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            nav.style.padding = '0.5rem 0';
+          } else {
+            nav.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            nav.style.padding = '1rem 0';
+          }
+        });
+      });
+    </script>
     <nav class="txt-body txt-m">
       <ul class="navigation-list">
         <li><a href="#apod-container"> Home </a></li>
-        <li><a href="#planet-info-container"> Simulator </a></li>
-        <li><a href="#events"> Events </a></li>
+        <!-- <li><a href="#planet-info-container"> Simulator </a></li> -->
+        <!-- <li><a href="#events"> Events </a></li> -->
         <li><a href="./index3.html"> Game </a></li>
         <li><a href="./image_gallery.html" target="_blank"> Images </a></li>
         <li>
@@ -58,188 +189,292 @@
     <header id="header-container" class="cover-screen img-overlay-container">
       <!-- An empty rectangle for black shadow effect on bg image-->
       <div class="cover-parent image-overlay"></div>
-      <video src="./public/assets/WhatsApp Video 2024-10-05 at 10.51.22_d93bce41.mp4" height="100%" width="100%" autoplay muted loop></video>
+      <video src="./images/background.mp4" height="100%" width="100%" autoplay muted loop></video>
       <!-- show main contents of the container -->
       <div id="header-content" class="center-container center-flex">
+      
+        <h1 class="txt-heading txt-xl" id="welcome-text">Welcome, Saggitarius</h1>
+        <div id="typewriter-container" class="txt-heading txt-l">
+          <span id="typewriter-text"></span>
+          <span id="cursor">|</span>
+        </div>
+        <script>
+          const text = "Explore the wonders of our solar system...";
+          const typewriterText = document.getElementById('typewriter-text');
+          const cursor = document.getElementById('cursor');
+          let charIndex = 0;
 
-        <h1 class="txt-heading txt-xl">Welcome, Saggitarius</h1>
+          function typeWriter() {
+            if (charIndex < text.length) {
+              typewriterText.innerHTML += text.charAt(charIndex);
+              charIndex++;
+              setTimeout(typeWriter, 100);
+            } else {
+              cursor.style.display = 'none';
+            }
+          }
+
+          typeWriter();
+          setInterval(() => {
+            cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
+          }, 500);
+        </script>
       </div>
     </header>
-
     <section id="apod-container" class="flex-container">
-      <div class="left img-card">
-        <img id="apod-img" src="" alt="APOD" />
-      </div>
+      
 
-      <div id="apod-info" class="right card center-card">
-        <h1 class="txt-m" style="font-style: italic; color: rgb(19, 18, 18)">
-          Astronomical Picture of the Day (by NASA)
-        </h1>
-        <h1 id="apod-title" class="txt-heading txt-m">
-          Astronomical Picture of the Day
-        </h1>
-        <p id="apod-para" class="txt-body txt-m">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste quas
-          illum, possimus sit mollitia accusantium in id reiciendis incidunt
-          consequatur laboriosam! Vero a error quos.
+     
+    </section>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        #apod-container {
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        #apod-img {
+            animation: slideIn 1s ease-out;
+        }
+        
+        #apod-info {
+            animation: slideIn 1s ease-out 0.5s backwards;
+        }
+        
+        #apod-title, #apod-para {
+            animation: fadeIn 1s ease-out 1s backwards;
+        }
+        
+        .btn {
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const newsSection = document.getElementById('space-news');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 1.5s ease-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(newsSection);
+        });
+    </script>
+
+   
+    <section id="video-background-section" class="flex-container">
+      <video autoplay muted loop id="space-video-bg">
+        <source src="public/assets/back1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="central-card card">
+       
+        <h2 class="txt-heading txt-m">Explore the Cosmos</h2>
+        <p class="txt-body txt-s">
+          Embark on a visual journey through our universe. Our gallery showcases breathtaking images of planets, stars, galaxies, and cosmic phenomena. From the swirling clouds of Jupiter to the distant nebulae, experience the awe-inspiring beauty of space.
         </p>
-        <a href="./image_gallery.html" class="txt-m btn secondary-bg"
-          >Open Image Gallery</a
-        >
+        <a href="./image_gallery.html" class="btn primary-bg txt-body">Open Gallery</a>
       </div>
     </section>
+
+    <style>
+      #video-background-section {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #space-video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+      }
+
+      .central-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 400px;
+      }
+
+      .gallery-preview-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .central-card h2 {
+        margin-bottom: 1rem;
+      }
+
+      .central-card p {
+        margin-bottom: 1.5rem;
+      }
+
+      .central-card .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .central-card .btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
 
     <!-- A SECTION TO DISPLAY UPCOMING EVENTS  Are Untracked-->
-    
-
-    <section id="space-news">
-      <div id="latest-news" class="card">
-        <h1 id="news-heading" class="txt-heading txt-l">
-          Stay Updated with Latest NEWS
-        </h1>
-        <div id="news-img-n-para">
-          <div class="credit-container">
-            <h1 id="news-credit" class="credit txt-heading"></h1>
-            <img id="news-image" alt="Space News Image" />
-          </div>
-          <div
-            id="news-description-container"
-            class="txt-body txt-m flex-container"
-          >
-            <p id="news-description"></p>
-            <a
-              id="open-latest-news-article"
-              href=""
-              class="btn secondary-bg"
-              onclick="showBackendProgressAlertMessage()"
-              >Open</a
-            >
+     
+    <section id="video-background-section"  class="flex-container">
+      <video autoplay muted loop id="space-video-bg">
+        <source src="public/assets/back2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h2 class="txt-heading txt-l">Interactive Space Games</h2>
+      <div class="game-card-container">
+        <div class="game-card">
+          <img src="public/assets/gravity-game1.jpg" alt="Gravity Game" class="game-image">
+          <div class="game-info">
+            <h3 class="txt-heading txt-m">Gravity Simulator</h3>
+            <p class="txt-body txt-s">Experience the forces of gravity in our interactive simulator. Manipulate celestial bodies and watch as they orbit and interact!</p>
+            <a href="gravity-main/index.html" class="btn primary-bg txt-body">Play Now</a>
           </div>
         </div>
-      </div>
-      <div id="space-news-container">
-        <div class="news card">
-          <h2 id="news-isro-heading" class="txt-heading txt-m">Title</h2>
-
-          <div class="credit-container">
-            <h4 id="news-isro-img-credit" class="credit txt-heading"></h4>
-            <img id="news-isro-img" alt="Space News Image" />
+        <div class="game-card">
+          <img src="public/assets/gravity-game2.jpg" alt="Orbital Mechanics Game" class="game-image">
+          <div class="game-info">
+            <h3 class="txt-heading txt-m">Orbital Mechanics Challenge</h3>
+            <p class="txt-body txt-s">Test your understanding of orbital dynamics! Launch satellites and navigate through complex planetary systems.</p>
+            <a href="gravity-engine-master/index-v69.html" class="btn primary-bg txt-body">Play Now</a>
           </div>
-
-        
-          <a
-            href=""
-            target="_blank"
-            id="news-isro-btn"
-            class="btn secondary-bg txt-body"
-            onclick="showBackendProgressAlertMessage()"
-            >Open</a
-          >
-        </div>
-        <div class="news card">
-          <h2 id="news-nasa-heading" class="txt-heading txt-m">Title</h2>
-
-          <div class="credit-container">
-            <h4 id="news-nasa-img-credit" class="credit txt-heading"></h4>
-            <img id="news-nasa-img" alt="Space News Image" />
-          </div>
-
-          <p id="news-nasa-para" class="txt-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
-            corporis cupiditate delectus tempora sed qui rem voluptatem deleniti
-            expedita iusto?
-          </p>
-          <a
-            href=""
-            target="_blank"
-            id="news-nasa-btn"
-            class="btn secondary-bg txt-body"
-            onclick="showBackendProgressAlertMessage()"
-            >Open</a
-          >
-        </div>
-        <div class="news card">
-          <h2 id="news-spacex-heading" class="txt-heading txt-m">Title</h2>
-
-          <div class="credit-container">
-            <h4 id="news-spacex-img-credit" class="credit txt-heading"></h4>
-            <img id="news-spacex-img" alt="Space News Image" />
-          </div>
-
-          <p id="news-spacex-para" class="txt-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
-            corporis cupiditate delectus tempora sed qui rem voluptatem deleniti
-            expedita iusto?
-          </p>
-          <a
-            href=""
-            target="_blank"
-            id="news-spacex-btn"
-            class="btn secondary-bg txt-body"
-            onclick="showBackendProgressAlertMessage()"
-            >Open</a
-          >
         </div>
       </div>
     </section>
-    <div class="cart">
-      <div class="col">
-       <div class="card shadow-sm">
-         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Game</text></svg>
-         <div class="card-body">
-           <p class="card-text">Defend spacecraft against enemy attacks, earn points, and progress through 10 levels.
-                                Gameplay: Defend against enemy trickery, track progress, and compete for high scores.</p>
-           <div class="d-flex justify-content-between align-items-center">
-             <div class="btn-group">
-              <a href="/src/clash-of-space-main/index.html" target="_blank">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Play Now</button>
-            </a>
-               <button type="button" class="btn btn-sm btn-outline-secondary">.</button>
-             </div>
-             <small class="text-body-secondary">9 mins</small>
-           </div>
-         </div>
-       </div>
-       <div class="col">
-         <div class="card shadow-sm">
-           <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Game</text></svg>
-           <div class="card-body">
-             <p class="card-text">Explore Earth-Moon system with customizable planets, particles, and camera controls.</p>
-             <div class="d-flex justify-content-between align-items-center">
-               <div class="btn-group">
-                <a href="/src/gravity-engine-master/index-v69-Cam.html" target="_blank">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Play Now </button>
-                </a>
-                 <button type="button" class="btn btn-sm btn-outline-secondary">.</button>
-               </div>
-               <small class="text-body-secondary">12 mins</small>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     </div>
-    <div class="col">
-         <div class="card shadow-sm">
-           <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Game</text></svg>
-           <div class="card-body">
-             <p class="card-text">Launch a Celestial from the red play area into the blue target area.
-                                  Goal :Achieve victory by landing in the target area.</p>
-             <div class="d-flex justify-content-between align-items-center">
-               <div class="btn-group">
-                <a href="/src/gravity-main/index.html" target="_blank">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Play Now</button>
-                </a>
-                 <button type="button" class="btn btn-sm btn-outline-secondary">.</button>
-               </div>
-               <small class="text-body-secondary">15 mins</small>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     </div>
-     
+
+    <style>
+      #game-cards {
+        padding: 2rem;
+        background: linear-gradient(45deg, #1c1c1c, #2c2c2c);
+        border-radius: 10px;
+        margin: 2rem 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+
+      .game-card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .game-card {
+        width: 300px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 1rem;
+      }
+
+      .game-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      }
+
+      .game-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid rgba(255,255,255,0.1);
+      }
+
+      .game-info {
+        padding: 1.5rem;
+      }
+
+      .game-info h3 {
+        margin-bottom: 0.5rem;
+        color: #f0f0f0;
+      }
+
+      .game-info p {
+        margin-bottom: 1rem;
+        color: #d0d0d0;
+      }
+
+      .game-info .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .game-info .btn:hover {
+        background-color: #4a90e2;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .game-card {
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      .game-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+    </style>
+
+    
+   
+      <!-- Repeat similar structure for other cards -->
+    </div>
+
     <!-- CONNECT TO JAVASCRIPT FILES -->
 
     <!-- import main script -->

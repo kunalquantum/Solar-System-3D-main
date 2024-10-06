@@ -136,31 +136,67 @@ a:hover {
 /* --------------------------------------------------- */
 /* NAVIGATION STYLES */
 /* --------------------------------------------------- */
+/* General reset */
 
-nav {
-    background-color: var(--dark-p);
-    padding: 10px 20px;
-}
-
-.navigation-list {
+  nav {
+    background: linear-gradient(145deg, #482294, #d679da); /* gradient for modern look */
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* subtle 3D shadow */
+    /* border-radius: 10px; */
+  }
+  
+  ul.navigation-list {
+    list-style-type: none;
     display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.navigation-list li {
-    padding: 5px 12px;
-}
-
-.navigation-list li a {
-    color: white;
-}
-
-.navigation-list li a:hover {
-    color: var(--light-secondary);
-}
-
+    justify-content: space-around;
+  }
+  
+  ul.navigation-list li {
+    position: relative;
+  }
+  
+  ul.navigation-list li a {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent button background */
+    border-radius: 5px;
+    transition: all 0.4s ease; /* Smooth transition */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+  }
+  
+  ul.navigation-list li a:hover {
+    background-color: #4286f4; /* Brighter blue on hover */
+    transform: translateY(-5px); /* Animate the link upwards */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  }
+  
+  ul.navigation-list li a:active {
+    transform: translateY(2px); /* Pressed effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow when clicked */
+  }
+  
+  /* Add a glowing effect on hover */
+  ul.navigation-list li a:hover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 5px;
+    border: 2px solid rgba(66, 134, 244, 0.6); /* Blue glow */
+    box-shadow: 0 0 10px rgba(66, 134, 244, 0.6);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  
+  ul.navigation-list li a:hover::before {
+    opacity: 1;
+  }
 /* --------------------------------------------------- */
 /* CARD STYLES */
 /* --------------------------------------------------- */
@@ -243,7 +279,7 @@ nav {
 /* --------------------------------------------------- */
 
 .cover-screen {
-    min-height: 100vh;
+    
     width: 100%;
     max-width: 100vw;
 }
@@ -309,12 +345,32 @@ h1,
 h2 {
     margin-bottom: 20px;
 }
+/* new */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #welcome-text {
+    font-size: 6em;
+    color: white;
+    animation: fadeIn 3s ease-in-out forwards;
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Roboto',sans-serif;
+  }
 
 /* Header Containers */
 
-#header-container {
+/* #header-container {
     background-image: url("../assets/header_banner.jpg");
-}
+} */
 
 #header-content {
     width: 80%;
