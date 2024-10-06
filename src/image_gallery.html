@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+  <nav class="txt-body txt-m">
+    <ul class="navigation-list">
+      <li><a href="./index.html#apod-container"> Home </a></li>
+      <li><a href="./index.html#planet-info-container"> Simulator </a></li>
+      <li><a href="./index.html#events"> Events </a></li>
+      <li><a href="image_gallery.html" target="_blank"> Images </a></li>
+      <li><a href="./index.html#space-news"> News </a></li>
+    </ul>
+  </nav>
+
+  <header id="gallery-header" class="cover-screen img-overlay-container">
+    <!-- An empty rectangle for black shadow effect on bg image-->
+    <div class="cover-parent image-overlay"> </div>
+
+    <!-- show main contents of the container -->
+    <div id="header-content" class="center-container center-flex">
+      <h1 class="txt-heading txt-xl">
+        Welcome to Our Image Gallery
+      </h1>
+    </div>
+  </header>
+
+  <main id="img-gallery-container" class="gallery-container cover-screen dark-bg">
+    <section id="spacex-gallery" class="column">
+      <h1 class="txt-heading txt-l">SpaceX Gallery</h1>
+    </section>
+    <section id="mars-rover-gallery" class="column">
+      <h1 class="txt-heading txt-l">Mars Rover Gallery</h1>
+    </section>
+    <section id="nasa-gallery" class="column">
+      <h1 class="txt-heading txt-l">Nasa Gallery</h1>
+    </section>
+  </main>
+
+  <script src="./public/js/image_gallery.js"></script>
+
+</body>
+</html>

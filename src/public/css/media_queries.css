@@ -1,0 +1,109 @@
+@media all and (max-width: 540px) {
+    .txt-xl {
+        font-size: 58px;
+    }
+
+    .txt-l {
+        font-size: 36px;
+    }
+
+    .txt-m {
+        font-size: 18px;
+    }
+
+    #events .left,
+    #events .right {
+        min-width: none;
+        width: fit-content;
+    }
+
+    #events-calendar {
+        padding: 0;
+    }
+
+    #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 30px);
+        justify-content: space-evenly;
+    }
+
+    .date,
+    .weekday {
+        text-align: center;
+        padding: 10px 5px;
+    }
+
+    .event {
+        background-color: var(--light-primary);
+        color: var(--light-secondary);
+        border-bottom: 3px solid var(--light-secondary);
+        font-weight: bold;
+    }
+
+    .event:hover {
+        background-color: var(--light-primary);
+        cursor: pointer;
+        border-bottom: 4px solid var(--light-secondary-hover);
+        font-weight: bolder;
+    }
+}
+
+@media all and (max-width: 470px) {
+    .txt-xl {
+        font-size: 50px;
+    }
+
+    .txt-l {
+        font-size: 24px;
+    }
+
+    .txt-m {
+        font-size: 14px;
+    }
+
+    #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 25px);
+        justify-content: space-evenly;
+    }
+
+    .date,
+    .weekday {
+        text-align: center;
+        padding: 8px 5px;
+    }
+
+    .card {
+        padding: 20px 20px;
+
+    }
+
+}
+
+@media all and (max-width: 350px) {
+    .txt-xl {
+        font-size: 26px;
+    }
+
+    .txt-l {
+        font-size: 20px;
+    }
+
+    .txt-m {
+        font-size: 12px;
+    }
+}
+
+@media all and (max-width: 250px) {
+    .txt-xl {
+        font-size: 24px;
+    }
+
+    .txt-l {
+        font-size: 18px;
+    }
+
+    .txt-m {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System Simulator</title>
+    <!-- GOOGLE FONT IMPORTS - BODY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- IMPORT ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/media_queries.css" />
+    <link rel="icon" type="image/x-icon" href="./public/assets/galaxy.ico" />
+  </head>
+  <body>
+    <!-- SOLAR SYSTEM SIMULATOR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <section id="planet-info-container" class="cover-screen">
+      <div id="planets-menu">
+        <button class="btn dark-bg planet-option">Sun</button>
+        <button class="btn dark-bg planet-option">Mercury</button>
+        <button class="btn dark-bg planet-option">Venus</button>
+        <button class="btn dark-bg planet-option">Earth</button>
+        <button class="btn dark-bg planet-option">Mars</button>
+        <button class="btn dark-bg planet-option">Jupiter</button>
+        <button class="btn dark-bg planet-option">Saturn</button>
+        <button class="btn dark-bg planet-option">Uranus</button>
+        <button class="btn dark-bg planet-option">Neptune</button>
+        <button class="btn dark-bg planet-option">Pluto</button>
+      </div>
+
+      <div id="solar-system-simulator" style="background-color: black"></div>
+
+      <div id="display-planet-info" class="card light-card">
+        <i id="planet-card-close" class="fa-regular fa-x close txt-m"></i>
+        <h2 id="planet-info-name" class="txt-heading txt-l">Planet Name</h2>
+        <div class="credit-container">
+          <h3 class="credit txt-heading">Credit: Wikimedia Cosmos</h3>
+          <img id="planet-info-img" src="" alt="" />
+        </div>
+        <p id="planet-info-para" class="txt-body txt-m justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
+          voluptas expedita quos excepturi sapiente asperiores delectus vitae
+          aperiam maiores voluptatibus.
+        </p>
+      </div>
+    </section>
+    <!-- IMPORT THE SOLAR SYSTEM JS CODE HERE -->
+    <script src="./public/js/solar_system.js"></script>
+  </body>
+</html>

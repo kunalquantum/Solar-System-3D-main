@@ -1,0 +1,521 @@
+:root {
+    --light-primary: rgb(236, 234, 234);
+    --dark-p: #0c0c0c;
+    --dark-p-transparent: #0c0c0ca6;
+    --light-secondary: rgb(10, 96, 224);
+    --light-secondary-hover: rgb(11, 82, 189);
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------- */
+/* TEXT STYLES */
+/* --------------------------------------------------- */
+
+.txt-heading {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.txt-body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.txt-body-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+.txt-xl {
+    font-size: 68px;
+}
+
+.txt-l {
+    font-size: 36px;
+}
+
+.txt-m {
+    font-size: 20px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* --------------------------------------------------- */
+/* BACKGROUND AND TEXT COLOR STYLES */
+/* --------------------------------------------------- */
+
+.dark-bg {
+    color: var(--light-primary);
+    background-color: var(--dark-p);
+}
+
+.light-bg {
+    color: var(--dark-p);
+    background-color: var(--light-primary);
+}
+
+.secondary-bg {
+    color: var(--light-primary);
+    background-color: var(--light-secondary);
+}
+
+.secondary-txt-color {
+    color: var(--light-secondary);
+}
+
+/* --------------------------------------------------- */
+/* BUTTON STYLES */
+/* --------------------------------------------------- */
+
+.btn {
+    text-align: center;
+    outline: none;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 15px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.527);
+}
+
+.btn:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: var(--light-secondary-hover);
+}
+
+.YTbtn {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: crimson;
+}
+
+.YTbtn:hover {
+    background-color: rgb(199, 19, 55);
+    cursor: pointer;
+}
+
+i.close {
+    margin-bottom: 20px;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+/* --------------------------------------------------- */
+/* LINK STYLES */
+/* --------------------------------------------------- */
+
+a {
+    color: var(--light-secondary);
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+/* --------------------------------------------------- */
+/* NAVIGATION STYLES */
+/* --------------------------------------------------- */
+
+nav {
+    background-color: var(--dark-p);
+    padding: 10px 20px;
+}
+
+.navigation-list {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navigation-list li {
+    padding: 5px 12px;
+}
+
+.navigation-list li a {
+    color: white;
+}
+
+.navigation-list li a:hover {
+    color: var(--light-secondary);
+}
+
+/* --------------------------------------------------- */
+/* CARD STYLES */
+/* --------------------------------------------------- */
+
+.card {
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: start;
+    align-items: start;
+    overflow-y: auto;
+    word-wrap: break-word;
+    background-color: var(--light-primary);
+}
+
+.card::-webkit-scrollbar {
+    width: 8px;
+    /* Adjust scrollbar width as needed */
+    background-color: transparent;
+    /* Transparent background */
+}
+
+.card::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black scrollbar with 50% opacity */
+    border-radius: 4px;
+    /* Rounded edges for the scrollbar thumb */
+}
+
+.card.center-card {
+    justify-content: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.center-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0px;
+}
+
+.img-card img {
+    width: 85%;
+    height: auto;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.356);
+}
+
+.credit-container {
+    position: relative;
+    width: 100%;
+}
+
+.credit {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: rgba(255, 255, 255, 0.575);
+}
+
+.hidden {
+    display: none;
+}
+
+/* --------------------------------------------------- */
+/* CONTAINER STYLES */
+/* --------------------------------------------------- */
+
+.cover-screen {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+}
+
+.img-overlay-container {
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.image-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.11);
+    z-index: 1;
+
+}
+
+.center-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.btn-flex-container .btn {
+    flex: 1;
+    min-width: 240px;
+}
+
+.left,
+.right {
+    width: 45%;
+    flex: 1;
+    min-width: 460px;
+    max-width: 1200px;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Header Containers */
+
+#header-container {
+    background-image: url("../assets/header_banner.jpg");
+}
+
+#header-content {
+    width: 80%;
+    height: 70%;
+}
+
+/* APOD Containers */
+
+#apod-container,
+#events {
+    padding: 20px 20px;
+    background-color: var(--dark-p);
+}
+
+
+/* Solar System Information */
+
+#planet-info-container {
+    position: relative;
+    height: 100vh;
+}
+
+#solar-system-simulator {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+canvas#defaultCanvas0 {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#display-planet-info {
+    position: absolute;
+    top: 50%;
+    left: -150%;
+    transform: translate(0%, -50%);
+    transition: left 0.5s ease;
+    width: 500px;
+    height: 95%;
+    z-index: 2;
+}
+
+#display-planet-info.active {
+    left: 10px;
+}
+
+#planets-menu {
+    background-color: var(--dark-p-transparent);
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 100px;
+    height: 100%;
+    color: var(--light-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#planets-menu button {
+    width: 100%;
+}
+
+/* Events Calender */
+
+#events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+#events-calender {
+    padding: 20px 20px;
+}
+
+#date-variables {
+    padding: 20px 10px;
+    border-bottom: 2px solid var(--light-secondary);
+    margin-bottom: 20px;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    justify-content: space-evenly;
+}
+
+.date,
+.weekday {
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.weekday {
+    font-weight: bold;
+}
+
+.event {
+    background-color: var(--light-secondary);
+    color: var(--light-primary);
+    font-weight: bold;
+}
+
+.event:hover {
+    cursor: pointer;
+    background-color: var(--light-secondary-hover);
+    font-weight: bolder;
+}
+
+
+/* Space News */
+
+#space-news {
+    background-image: url('../assets/news_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px 20px;
+}
+
+
+#latest-news {
+    width: 96%;
+    margin: auto;
+}
+
+#news-img-n-para {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#news-img-n-para div,
+#news-img-n-para .credit-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+#news-description-container {
+    justify-content: start;
+}
+
+#space-news-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 20px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.news {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    flex: 1;
+    min-width: 350px;
+}
+
+/* --------------------------------------------------- */
+/* IMAGE GALLERY */
+/* --------------------------------------------------- */
+
+#gallery-header {
+    background-image: url('../assets/img_gallery_header_bg.jpg');
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.column {
+    padding: 20px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.img-wrapper img {
+    width: 100%;
+}
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TITLE OF OUR BROWSER'S TAB -->
+    <title>Saggitarius</title>
+
+    <!-- GOOGLE FONT IMPORTS - HEADING -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GOOGLE FONT IMPORTS - BODY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- IMPORT ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- IMPORT OUR OWN STYLE SHEETS -->
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/media_queries.css" />
+    <link rel="icon" type="image/x-icon" href="./public/assets/galaxy.ico" />
+  </head>
+  <body>
+    <nav class="txt-body txt-m">
+      <ul class="navigation-list">
+        <li><a href="#apod-container"> Home </a></li>
+        <li><a href="#planet-info-container"> Simulator </a></li>
+        <li><a href="#events"> Events </a></li>
+        <li><a href="./index3.html"> Game </a></li>
+        <li><a href="./image_gallery.html" target="_blank"> Images </a></li>
+        <li>
+          <a href="./index2.html" target="_blank">
+            Solar System Simulator
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HEADER THAT THE USER SEES. A WELCOME MESSAGE WITH APOD -->
+    
+    <header id="header-container" class="cover-screen img-overlay-container">
+      <!-- An empty rectangle for black shadow effect on bg image-->
+      <div class="cover-parent image-overlay"></div>
+      <video src="./public/assets/WhatsApp Video 2024-10-05 at 10.51.22_d93bce41.mp4" height="100%" width="100%" autoplay muted loop></video>
+      <!-- show main contents of the container -->
+      <div id="header-content" class="center-container center-flex">
+
+        <h1 class="txt-heading txt-xl">Welcome, Saggitarius</h1>
+      </div>
+    </header>
+
+    <section id="apod-container" class="flex-container">
+      <div class="left img-card">
+        <img id="apod-img" src="" alt="APOD" />
+      </div>
+
+      <div id="apod-info" class="right card center-card">
+        <h1 class="txt-m" style="font-style: italic; color: rgb(19, 18, 18)">
+          Astronomical Picture of the Day (by NASA)
+        </h1>
+        <h1 id="apod-title" class="txt-heading txt-m">
+          Astronomical Picture of the Day
+        </h1>
+        <p id="apod-para" class="txt-body txt-m">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste quas
+          illum, possimus sit mollitia accusantium in id reiciendis incidunt
+          consequatur laboriosam! Vero a error quos.
+        </p>
+        <a href="./image_gallery.html" class="txt-m btn secondary-bg"
+          >Open Image Gallery</a
+        >
+      </div>
+    </section>
+
+    <!-- A SECTION TO DISPLAY UPCOMING EVENTS -->
+    
+
+    <section id="space-news">
+      <div id="latest-news" class="card">
+        <h1 id="news-heading" class="txt-heading txt-l">
+          Stay Updated with Latest NEWS
+        </h1>
+        <div id="news-img-n-para">
+          <div class="credit-container">
+            <h1 id="news-credit" class="credit txt-heading"></h1>
+            <img id="news-image" alt="Space News Image" />
+          </div>
+          <div
+            id="news-description-container"
+            class="txt-body txt-m flex-container"
+          >
+            <p id="news-description"></p>
+            <a
+              id="open-latest-news-article"
+              href=""
+              class="btn secondary-bg"
+              onclick="showBackendProgressAlertMessage()"
+              >Open</a
+            >
+          </div>
+        </div>
+      </div>
+      <div id="space-news-container">
+        <div class="news card">
+          <h2 id="news-isro-heading" class="txt-heading txt-m">Title</h2>
+
+          <div class="credit-container">
+            <h4 id="news-isro-img-credit" class="credit txt-heading"></h4>
+            <img id="news-isro-img" alt="Space News Image" />
+          </div>
+
+          <p id="news-isro-para" class="txt-body">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+            corporis cupiditate delectus tempora sed qui rem voluptatem deleniti
+            expedita iusto?
+          </p>
+          <a
+            href=""
+            target="_blank"
+            id="news-isro-btn"
+            class="btn secondary-bg txt-body"
+            onclick="showBackendProgressAlertMessage()"
+            >Open</a
+          >
+        </div>
+        <div class="news card">
+          <h2 id="news-nasa-heading" class="txt-heading txt-m">Title</h2>
+
+          <div class="credit-container">
+            <h4 id="news-nasa-img-credit" class="credit txt-heading"></h4>
+            <img id="news-nasa-img" alt="Space News Image" />
+          </div>
+
+          <p id="news-nasa-para" class="txt-body">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+            corporis cupiditate delectus tempora sed qui rem voluptatem deleniti
+            expedita iusto?
+          </p>
+          <a
+            href=""
+            target="_blank"
+            id="news-nasa-btn"
+            class="btn secondary-bg txt-body"
+            onclick="showBackendProgressAlertMessage()"
+            >Open</a
+          >
+        </div>
+        <div class="news card">
+          <h2 id="news-spacex-heading" class="txt-heading txt-m">Title</h2>
+
+          <div class="credit-container">
+            <h4 id="news-spacex-img-credit" class="credit txt-heading"></h4>
+            <img id="news-spacex-img" alt="Space News Image" />
+          </div>
+
+          <p id="news-spacex-para" class="txt-body">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+            corporis cupiditate delectus tempora sed qui rem voluptatem deleniti
+            expedita iusto?
+          </p>
+          <a
+            href=""
+            target="_blank"
+            id="news-spacex-btn"
+            class="btn secondary-bg txt-body"
+            onclick="showBackendProgressAlertMessage()"
+            >Open</a
+          >
+        </div>
+      </div>
+    </section>
+    <div class="cart">
+      <div class="col">
+       <div class="card shadow-sm">
+         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Game</text></svg>
+         <div class="card-body">
+           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+           <div class="d-flex justify-content-between align-items-center">
+             <div class="btn-group">
+               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+             </div>
+             <small class="text-body-secondary">9 mins</small>
+           </div>
+         </div>
+       </div>
+       <div class="col">
+         <div class="card shadow-sm">
+           <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Game</text></svg>
+           <div class="card-body">
+             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="btn-group">
+                 <button type="button" class="btn btn-sm btn-outline-secondary">Play Now</button>
+                 <button type="button" class="btn btn-sm btn-outline-secondary">.</button>
+               </div>
+               <small class="text-body-secondary">9 mins</small>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     </div>
+     
+
+    <!-- CONNECT TO JAVASCRIPT FILES -->
+
+    <!-- import main script -->
+    <script src="public/js/script.js"></script>
+  </body>
+</html>
